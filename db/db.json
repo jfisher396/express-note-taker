@@ -1,23 +1,7 @@
 [
 	{
-		"title": "Test Title",
-		"text": "Test text"
-	},
-	{
-		"title": "POSTed note title",
-		"text": "POSTed note text"
-	},
-	{
-		"title": "another title",
-		"text": "another text"
-	},
-	{
-		"title": "Hello",
-		"text": "There"
-	},
-	{
-		"id": "e8f07aa0-8776-419a-9f1d-32a9b5db605d",
-		"title": "title with UUID",
-		"text": "text with UUID"
+		"id": "41022240-b9bd-4d37-bca1-d2f2c79b2fef",
+		"title": "new",
+		"text": "Note"
 	}
 ]

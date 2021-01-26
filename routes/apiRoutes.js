@@ -1,10 +1,8 @@
 // import json data from db
 const fs = require("fs");
-const uuid = require('uuid')
+const uuid = require('uuid');
 
 const noteData = require("../db/db.json");
-
-// console.log(noteData)
 
 module.exports = function (app) {
 
@@ -21,7 +19,6 @@ module.exports = function (app) {
         title: req.body.title,
         text: req.body.text
     };
-    console.log(newNote);
 
     noteData.push(newNote);
 
@@ -29,28 +26,30 @@ module.exports = function (app) {
         if (err) {
           return console.log(err);
         }
-        // console.log(noteData);
+        console.log("new note added");
       }
     );
 
-    res.send(noteData);
+     return res.send(noteData);
   });
 
+
+  // route to delete notes
   app.delete("/api/notes/:id", function(req,res) {
 
-    // console.log(req.body.title);
-    const noteToDelete = req.body.title;
-
-    const newNoteData = {};
-
-    for (let i = 0; i < noteData.length; i++) {
-        if (noteToDelete !== noteData[i].title) {
-            newNoteData.push()
+    const noteToDelete = req.params.id;
+    
+    const newNoteData = noteData.filter(note => note.id !== noteToDelete)
+    
+    fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(newNoteData, null, "\t"), function (err, data) {
+        if (err) {
+          return console.log(err);
         }
-
-    }
-
-    res.send("note deleted")
+        console.log("note deleted");
+      }
+    );
+    
+    return res.send(noteData)
   });
 
 };
