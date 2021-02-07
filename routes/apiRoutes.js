@@ -1,8 +1,10 @@
 // import json data from db
 const fs = require("fs");
+const util = require("util")
 const uuid = require('uuid');
 
 const noteData = require("../db/db.json");
+const writeASync = util.promisify(fs.writeFile);
 
 module.exports = function (app) {
 
@@ -36,19 +38,19 @@ module.exports = function (app) {
 
   // route to delete notes
   app.delete("/api/notes/:id", function(req,res) {
-
+    // separates out the note to delete based on id
     const noteToDelete = req.params.id;
-    
-    const newNoteData = noteData.filter(note => note.id !== noteToDelete)
-    
-    fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(newNoteData, null, "\t"), function (err, data) {
-        if (err) {
-          return console.log(err);
-        }
-        console.log("note deleted");
-      }
-    );
-    
+    // sort through notes file and create a new array minus the note in question
+    const newNoteData = noteData.filter(note => note.id !== noteToDelete);
+
+    writeASync(__dirname + "/../db/db.json", JSON.stringify(newNoteData, null, "\t")).then(function() {
+        console.log("note removed");
+    }).catch(function(err) {
+        throw err
+    }).then(function() {
+      window.location.href = "/notes";
+    });
+  
     return res.send(noteData)
   });
 
