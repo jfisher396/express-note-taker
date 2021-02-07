@@ -48,7 +48,7 @@ module.exports = function (app) {
     }).catch(function(err) {
         throw err
     }).then(function() {
-      window.location.href = "/notes";
+      window.location.href = "https://sheltered-lake-74318.herokuapp.com/notes";
     });
   
     return res.send(noteData)
