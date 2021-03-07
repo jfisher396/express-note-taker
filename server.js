@@ -12,8 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+const apiRoutes = require("./routes/apiRoutes");
+app.use(apiRoutes);
+const htmlRoutes = require("./routes/htmlRoutes");
+app.use(htmlRoutes);
 
 //create server listener
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
