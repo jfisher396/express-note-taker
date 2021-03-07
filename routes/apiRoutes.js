@@ -34,8 +34,10 @@ router.delete("/api/notes/:id", async function (req, res) {
   const currentNotes = await DB.readNotes();
   // sort through notes file and create a new array minus the note in question
   const newNoteData = currentNotes.filter((note) => note.id !== noteToDelete);
+
   // sends the new array back the DB class 
   await DB.deleteNote(newNoteData);
+  
   return res.send(newNoteData);
 });
 

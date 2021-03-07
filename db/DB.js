@@ -12,15 +12,15 @@ class DB {
       const notesRaw = await readFileAsync(noteData, "UTF8");
       return notesRaw ? JSON.parse(notesRaw) : [];
     } catch (error) {
-      console.log("Something went wrong READING the notes ", error);
+      throw error;
     }
   }
 
   async addNote(data) {
     try {
       await writeFileAsync(noteData, JSON.stringify(data, null, "\t")).then(() => {
-          console.log("New note added.");
-        }
+         console.log("New note added.");
+      }
       );
     } catch (error) {
       throw error;
@@ -28,14 +28,14 @@ class DB {
   }
 
   async deleteNote(data) {
-      try {
-          await writeFileAsync(noteData, JSON.stringify(data, null, "\t")).then(() => {
-              console.log("Note deleted.")
-          }
-        );
-      } catch (error) {
-          
+    try {
+      await writeFileAsync(noteData, JSON.stringify(data, null, "\t")).then(() => {
+        console.log("Note deleted.");
       }
+    );
+    } catch (error) {
+      throw error;
+    }
   }
 }
 
