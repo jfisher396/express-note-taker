@@ -15,6 +15,18 @@ class DB {
             console.log("Something went wrong READING the notes ", error)
         }
     }
+
+    async addNote(data) {
+        try {
+            await writeFileAsync (noteData, JSON.stringify(data, null, "\t")).then(
+                () => {
+                    console.log("New note added.")
+                }
+            )
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = new DB();

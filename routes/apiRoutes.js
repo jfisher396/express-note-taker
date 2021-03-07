@@ -14,26 +14,18 @@ const DB = require("../db/DB");
   });
 
     // route to add a new note and add it to the json file
-  // router.post("/api/notes", function (req, res) {
+  router.post("/api/notes", async function (req, res) {
+    const currentNotes = await DB.readNotes();
+    let newNote = {
+        id: uuid(),
+        title: req.body.title,
+        text: req.body.text
+    };
 
-  //   let newNote = {
-  //       id: uuid(),
-  //       title: req.body.title,
-  //       text: req.body.text
-  //   };
+    await DB.addNote([...currentNotes, newNote])
 
-  //   noteData.push(newNote);
-
-  //   fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(noteData, null, "\t"), function (err, data) {
-  //       if (err) {
-  //         return console.log(err);
-  //       }
-  //       console.log("new note added");
-  //     }
-  //   );
-
-  //    return res.send(noteData);
-  // });
+    return res.send(newNote);
+  });
 
 
   // // route to delete notes
