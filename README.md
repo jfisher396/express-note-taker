@@ -1,80 +1,95 @@
-# Unit 11 Express Homework: Note Taker
+# Express Note Taker
 
-## Description
+An application that can be used to write, save, and delete notes. This application uses an express backend and saves and retrieves note data from a JSON file. 
 
-Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.
+[A deployed version can be viewed here.](https://sheltered-lake-74318.herokuapp.com/)
 
-* The application frontend has already been created, it's your job to build the backend and connect the two.
+## Contents
 
-* The following HTML routes should be created:
+1. [About](#about)
+    1. [User Story](#user%20story)
+    2. [Acceptance criteria](#acceptance%20criteria)
+    3. [Visuals](#visuals)
+    4. [Build](#build)
+2. [Setup](#setup)
+3. [Credits](#credits)
+4. [License](#license)
+5. [Contributing](#contributing)
 
-  * GET `/notes` - Should return the `notes.html` file.
-
-  * GET `*` - Should return the `index.html` file
-
-* The application should have a `db.json` file on the backend that will be used to store and retrieve notes using the `fs` module.
-
-* The following API routes should be created:
-
-  * GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
-
-  * POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
-
-  * DELETE `/api/notes/:id` - Should receive a query parameter containing the id of a note to delete. This means you'll need to find a way to give each note a unique `id` when it's saved. In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
-
-## User Story
-
-AS A user, I want to be able to write and save notes
-
-I WANT to be able to delete notes I've written before
-
-SO THAT I can organize my thoughts and keep track of tasks I need to complete
-
-## Business Context
+### About
 
 For users that need to keep track of a lot of information, it's easy to forget or be unable to recall something important. Being able to take persistent notes allows users to have written information available when needed.
 
-## Acceptance Criteria
+### User Story
 
-Application should allow users to create and save notes.
+    AS A user, I want to be able to write and save notes
+    I WANT to be able to delete notes I've written before
+    SO THAT I can organize my thoughts and keep track of tasks I need to complete
 
-Application should allow users to view previously saved notes.
+### Acceptance Criteria
 
-Application should allow users to delete previously saved notes.
+    Application should allow users to create and save notes.
+    Application should allow users to view previously saved notes.
+    Application should allow users to delete previously saved notes.
 
-## Deploying the App
+    * The application frontend has already been created, it's your job to build the backend and connect the two.
 
-You will not be able to deploy your server side code on GitHub pages. This app should be deployed on Heroku. Carefully follow the [Heroku Guide](../04-Supplemental/HerokuGuide.md) for getting your app deployed on Heroku.
+    * The following HTML routes should be created:
 
-- - -
+    * GET `/notes` - Should return the `notes.html` file.
 
-## Commit Early and Often
+    * GET `*` - Should return the `index.html` file
 
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
+    * The application should have a `db.json` file on the backend that will be used to store and retrieve notes using the `fs` module.
 
-* Your commit history is a signal to employers that you are actively working on projects and learning new skills.
+    * The following API routes should be created:
 
-* Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
+    * GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
 
-Follow these guidelines for committing:
+    * POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the    client.
 
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
+    * DELETE `/api/notes/:id` - Should receive a query parameter containing the id of a note to delete. This means you'll need to find a way to give each note a unique `id` when it's saved. In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
 
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
 
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
+### Visuals:
 
-* Test your application before you commit to ensure functionality at every step in the development process.
 
-We would like you to have well over 200 commits by graduation, so commit early and often!
+![Screenshot of load page](/media/note-taker-1.png)
+![Screenshot of load page](/media/note-taker-2.png)
+![Screenshot of load page](/media/note-taker-3.png)
 
-## Submission on BCS
 
-You are required to submit the following:
+### Build
 
-* The URL of the deployed application. This should be the link to the url provided by Heroku. Be sure not to submit a link to the Heroku dashboard.
+* In HTML, semantic tags have been used to aid with accessibility.
 
-* The URL of the GitHub repository
 
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+## Setup
+
+To clone the repo:
+```
+git clone git@github.com:jfisher396/express-note-taker.git
+``` 
+
+## Credits
+
+[James Fisher](https://github.com/jfisher396)
+
+## License
+
+Built by [James Fisher](https://james-fisher-web-developer.herokuapp.com/).
+This application is released under [MIT](assets/LICENSE.txt) license.
+
+## Contributing
+
+To contribute to this application, create a pull request.
+Here are the steps needed for doing that:
+- Fork the repo
+- Create a feature branch (git checkout -b NAME-HERE)
+- Commit your new feature (git commit -m 'Add some feature')
+- Push your branch (git push)
+- Create a new Pull Request
+
+Following a code review, your feature will be merged.
+
+=======
