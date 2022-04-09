@@ -1,4 +1,4 @@
-# Express Note Generator
+# Express Note Taker
 
 <p>
   <img src="https://img.shields.io/badge/-JavaScript-yellow" />
