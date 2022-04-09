@@ -57,9 +57,11 @@ An application that can be used to write, save, and delete notes using Node and 
 
 ## Visuals
 
-![screenshot 1](media/note-taker-screenshot1.png)
+![screenshot 1](media/note-taker-1.png)
 ---
-![screenshot 1](media/not-taker-screenshot2.png)
+![screenshot 1](media/note-taker-2.png)
+---
+![screenshot 1](media/note-taker-3.png)
 
 ---
 
